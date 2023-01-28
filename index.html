@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            color: white;
+            margin: 0 auto;
+            background-image: url(bg.jpg);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            position: static;
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+
+        input::-webkit-outer-spin-button,
+        input::-webkit-inner-spin-button {
+            -webkit-appearance: none;
+            margin: 0;
+        }
+
+
+        .container {
+            margin: 2%;
+            text-align: center;
+            padding: 20px;
+            background: rgba(12, 12, 12, 0.5);
+            box-shadow: 0 0 10px #000;
+        }
+
+        input {
+            margin-bottom: 3%;
+            display: flex;
+            flex-wrap: wrap;
+            width: 100%;
+            background-color: white;
+            padding: 10px;
+            border: 1px solid black;
+            width: 100%;
+        }
+
+        button {
+            padding: 10px;
+            width: 100%;
+            background: transparent;
+            color: white;
+            margin-top: 2%;
+        }
+
+        select {
+            margin-top: 2%;
+            display: flex;
+            flex-wrap: wrap;
+            width: 100%;
+            background-color: white;
+            padding: 10px;
+            border: 1px solid black;
+            width: 100%;
+        }
+
+        label {
+            margin-top: 20%;
+        }
+
+        button:hover {
+            background: rgb(255, 255, 255);
+            color: black;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <label for="myInput">Enter a number</label>
+        <input type="number" id="myInput">
+
+        <select name="" id="">
+            <option>Select an opton</option>
+            <option name="Kilograms" id="Kilograms">Kilograms</option>
+            <option name="Grams" id="Grams">Grams</option>
+        </select>
+        <button id="myButton">Convert</button>
+        <h3 id="output">Answer</h3>
+    </div>
+    <script>
+        let output = document.getElementById("output")
+        let inputValue = document.getElementById("myInput")
+        let button = document.getElementById("myButton")
+        let gramsButton = document.getElementById("Grams");
+        let KilogramsButton = document.getElementById("Kilograms");
+        button.addEventListener("click", function () {
+            if (gramsButton.selected) {
+                output.innerHTML = "Answer: " + inputValue.value / 1000
+            } else if (KilogramsButton.selected) {
+                output.innerHTML = "Answer: " + inputValue.value * 1000
+            }
+            else if (inputValue.value == "") {
+                output.innerHTML = "Enter a number"
+            }
+
+            else {
+                output.innerHTML = "Pls select an Option"
+            }
+        })
+    </script>
+</body>
+
+</html>
